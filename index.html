@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting started with firebase</title>
+</head>
+<body>
+
+    Prenom <input type="text" id="prenom"> <br><br>
+    Nom <input type="text" id="nom"><br><br>
+    numero <input type="number" id="numero"><br><br>
+    Poids <input type="number" id="poids"><br><br>
+    Taille <input type="number" id="taille"><br><br>
+
+    <button id="insert">INSERT</button>
+    <button id="select">SELECT</button>
+    <button id="update">UPDATE</button>
+    <button id="remove">DELETE</button>
+
+<!-------------------------------------------------Configuration------------------------------------------------>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyA-POZC84GKqUiDaN1uqWwhBJC-VVv5R-o",
+          authDomain: "test-21f4a.firebaseapp.com",
+          projectId: "test-21f4a",
+          storageBucket: "test-21f4a.appspot.com",
+          messagingSenderId: "63950129291",
+          appId: "1:63950129291:web:522c49bba1e6a238bb6c8e"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import { getDatabase, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"
+
+        const db = getDatabase()
+
+//-----------------------------------------------------------references---------------------------------------------------
+
+        var prenom = document.getElementById('prenom')
+        var nom = document.getElementById('nom')
+        var numero = document.getElementById('numero')
+        var poids = document.getElementById('poids')
+        var taille = document.getElementById('taille')
+
+        var insert = document.getElementById('insert')
+        var select = document.getElementById('select')
+        var maj = document.getElementById('update')
+        var supp = document.getElementById('remove')
+
+//--------------------------------------------------------insertion des donnees--------------------------------------------
+
+
+        function insertData() {
+            set(ref(db, "users/"+ numero.value),{
+                Prenom: prenom.value,
+                Nom: nom.value,
+                Numero: numero.value,
+                Poids: poids.value,
+                Taille: taille.value
+            })
+            .then(()=>{
+                alert('données insérées avec succés !!')
+            })
+            .catch((error)=>{
+                alert('erreur !!!'+error)
+            })
+        }
+
+//--------------------------------------------------------Les boutons--------------------------------------------
+
+        insert.addEventListener('click', function(){
+            insertData()
+        })
+
+
+    </script>
+    
+</body>
+</html>
