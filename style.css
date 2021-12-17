@@ -1,0 +1,32 @@
+.card-idea {
+    border-radius: 10px;
+  }
+  
+  .card-idea:hover {
+    background: rgba(241, 235, 237, 0.1);
+    box-shadow: 0 4px 12px 0 rgba(106, 108, 143, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .invalid {
+    border-color: #ce0033;
+    opacity: 0.6;
+  }
+  
+  .text-green {
+    color: #198754 !important;
+  }
+  
+  .text-red {
+    color: #ce0033 !important;
+  }
+  .text-gris {
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+  }
